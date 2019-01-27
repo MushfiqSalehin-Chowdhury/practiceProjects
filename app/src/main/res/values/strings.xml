@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">practiceProjects</string>
+    <string name="title_activity_high__low">High_Low</string>
+    <string name="title_activity_high_low">High_low</string>
+</resources>
