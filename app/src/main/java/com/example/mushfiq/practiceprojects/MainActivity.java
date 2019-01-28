@@ -25,4 +25,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(MainActivity.this,High_low.class));
     }
 
+
+    public void NumberShape(View view) {
+        startActivity(new Intent(MainActivity.this,NumberShapes.class));
+    }
 }
