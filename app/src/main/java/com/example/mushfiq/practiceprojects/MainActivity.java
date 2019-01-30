@@ -4,10 +4,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,16 +15,16 @@ public class MainActivity extends AppCompatActivity {
 
     public void ImageProject(View view) {
         startActivity(new Intent(MainActivity.this,ImageActivity.class));
-
     }
-
     public void highLow(View view) {
-
-        startActivity(new Intent(MainActivity.this,High_low.class));
+        startActivity(new Intent(MainActivity.this, High_lowActivity.class));
+    }
+    public void NumberShape(View view) {
+        startActivity(new Intent(MainActivity.this, NumberShapesActivity.class));
     }
 
 
-    public void NumberShape(View view) {
-        startActivity(new Intent(MainActivity.this,NumberShapes.class));
+    public void connectGame(View view) {
+        startActivity(new Intent(MainActivity.this,ConnectGameActivity.class));
     }
 }

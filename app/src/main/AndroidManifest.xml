@@ -9,9 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NumberShapes"></activity>
+        <activity android:name=".ConnectGameActivity"></activity>
+        <activity android:name=".NumberShapesActivity" />
         <activity
-            android:name=".High_low"
+            android:name=".High_lowActivity"
             android:label="@string/title_activity_high_low"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ImageActivity" />
