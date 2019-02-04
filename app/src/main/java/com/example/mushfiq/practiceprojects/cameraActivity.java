@@ -1,5 +1,7 @@
 package com.example.mushfiq.practiceprojects;
 
+import android.Manifest;
+import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -10,6 +12,7 @@ import android.media.Image;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Environment;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -26,7 +29,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
-
+import com.squareup.picasso.Picasso;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -45,19 +48,26 @@ public class cameraActivity extends AppCompatActivity {
 
     static final int REQUEST_IMAGE_CAPTURE = 1;
     ImageView ImageView;
+    private static final int REQUEST_EXTERNAL_STORAGE = 1;
+    private static String[] PERMISSIONS_STORAGE = {
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
-
-        ImageView = (ImageView) findViewById(R.id.image);
-          /*  SharedPreferences shared = getSharedPreferences("img", MODE_PRIVATE);
-            String photo = shared.getString("imagePreferance", "photo");
-            byte[] b = Base64.decode(photo, Base64.DEFAULT);
-            ByteArrayInputStream is = new ByteArrayInputStream(b);
-            Bitmap bitmap = BitmapFactory.decodeStream(is);
-            ImageView.setImageBitmap(bitmap);*/
+        verifyStoragePermissions(this);
+        //Toast.makeText(this, "Item : "+item, Toast.LENGTH_SHORT).show();
+        ImageView = findViewById(R.id.image);
+        SharedPreferences shared = getSharedPreferences("img", MODE_PRIVATE);
+        String path = shared.getString("imagePreferance","");
+       // Toast.makeText(this, path, Toast.LENGTH_SHORT).show();
+        if (path!=""){
+           Toast.makeText(this, path, Toast.LENGTH_LONG).show();
+            Picasso.get().load(path).into(ImageView);
+        }
     }
 
     public void launchCamera(View view){
@@ -68,61 +78,26 @@ public class cameraActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         super.onActivityResult(requestCode, resultCode, data);
-
-           // SharedPreferences shrdf=getSharedPreferences("img",MODE_PRIVATE);
-           // SharedPreferences.Editor editor = shrdf.edit();
-           // editor.putString("imagePreferance", imageEncoded);
-           // editor.commit();
-
-            try{
-                if(requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-                    Bundle extras = data.getExtras();
-                    Bitmap photo = (Bitmap) data.getExtras().get("data");
-                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                    photo.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-                    byte[] image = baos.toByteArray();
-                    //String imageEncoded = Base64.encodeToString(image, Base64.DEFAULT);
-                    //Log.i("Image Log:", imageEncoded);
-                    SQLiteDatabase imageDB = this.openOrCreateDatabase("Image", MODE_PRIVATE, null);
-                    imageDB.execSQL("CREATE TABLE IF NOT EXISTS imageTable (image BLOB , id INT(3))");
-                    imageDB.execSQL("INSERT INTO imageTable (image,id) VALUES (image,1)");
-                    Cursor c = imageDB.rawQuery("SELECT * FROM imageTable", null);
-
-                    int idIndex = c.getColumnIndex("id");
-                    c.moveToFirst();
-
-                    while (c != null) {
-
-                        byte[] b = c.getBlob(c.getColumnIndex("image"));
-                        Bitmap bitmap = BitmapFactory.decodeByteArray(b,0,b.length);
-                        ImageView.setImageBitmap(bitmap);
-                        Log.i("id",Integer.toString(c.getInt(idIndex)));
-
-                    }
-                }
-
-            } catch (Exception e){
-                Log.i("CameraActivity", "onActivityResult: "+String.valueOf(e) );
+        if(requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            Bundle extras = data.getExtras();
+            Bitmap photo = (Bitmap) data.getExtras().get("data");
+           // ImageView.setImageBitmap(photo);
+            SaveImage(photo);
             }
-
         }
-    }
-
-   /*private void SaveImage(Bitmap finalBitmap) {
-
-
-        String root = Environment.getExternalStorageDirectory().getAbsolutePath()+ "/"+"Mushfiq"+"/Image";
-        //Toast.makeText(this,root, Toast.LENGTH_LONG).show();
-
-       Log.e("CameraActivity", String.valueOf(root));
-      File myDir = new File(root);
+   public void SaveImage(Bitmap finalBitmap) {
+        File myDir = new File(Environment.getExternalStorageDirectory(),"Mushfiq"+"/"+"Image");
         if (!myDir.exists()) {
-            if(myDir.mkdirs()){
-
-            };
+            myDir.mkdirs();
         }
-        String fname = "Image"+ +System.currentTimeMillis() +".jpg";
+        String fname = "Image"+System.currentTimeMillis() +".jpg";
         File file = new File (myDir, fname);
+        String path = file.getAbsolutePath();
+        //Toast.makeText(this, path, Toast.LENGTH_LONG).show();
+       SharedPreferences shrdf=getSharedPreferences("img",MODE_PRIVATE);
+       SharedPreferences.Editor editor = shrdf.edit();
+       editor.putString("imagePreferance", path);
+       editor.commit();
          FileOutputStream out;
         try {
             out = new FileOutputStream(file);
@@ -133,8 +108,18 @@ public class cameraActivity extends AppCompatActivity {
             e.printStackTrace();
             Log.e("CameraActivity", String.valueOf(e));
         }
+      //Toast.makeText(this, "Item = "+item, Toast.LENGTH_SHORT).show();
     }
-    private void saveImage(Bitmap bitmap) {
+    public static void verifyStoragePermissions(Activity activity) {
+        int permission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        int permissionn = ActivityCompat.checkSelfPermission(activity, Manifest.permission.READ_EXTERNAL_STORAGE);
+
+        if (permission != PackageManager.PERMISSION_GRANTED && permissionn != PackageManager.PERMISSION_GRANTED ) {
+            ActivityCompat.requestPermissions(activity, PERMISSIONS_STORAGE, REQUEST_EXTERNAL_STORAGE);
+        }
+    }
+}
+    /*private void saveImage(Bitmap bitmap) {
         String tempImageName = imageName = TextUtils.isEmpty(imageName) ? System.currentTimeMillis()+"_"+new Random().nextInt()+".jpg" : imageName+ ".jpg";
         String file_path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/"+imageDirName+"/Image";
         File dir = new File(file_path);
