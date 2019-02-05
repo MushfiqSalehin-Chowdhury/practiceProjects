@@ -2,28 +2,29 @@ package com.example.mushfiq.practiceprojects;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
+import android.support.*;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.concurrent.TimeUnit;
 
 public class ConnectGameActivity extends AppCompatActivity {
-
     int x=0,position;
     int tapped[]= {2,2,2,2,2,2,2,2,2};
     int[][] winningPositions = {{0,1,2}, {3,4,5}, {6,7,8}, {0,3,6}, {1,4,7}, {2,5,8}, {0,4,8}, {2,4,6}};
-    FrameLayout layout = (FrameLayout) findViewById(R.id.againId);
-    TextView tv=(TextView)findViewById(R.id.playAgain);
+    FrameLayout layout ;
+    TextView tv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_connect_game);
-
+        layout=findViewById(R.id.againId);
+        tv= findViewById(R.id.playAgain);
     }
     public void show(View view) {
         ImageView counter = (ImageView) view;
@@ -46,7 +47,7 @@ public class ConnectGameActivity extends AppCompatActivity {
                 if (tapped[winningPosition[0]]==0){
                    // Toast.makeText(this, "Circle Wins", Toast.LENGTH_SHORT).show();
                    layout.setVisibility(View.VISIBLE);
-                    tv.setText("Circle Wins !!!");
+                    tv.setText("Circle Wins!!!");
                 }
                 else{
                    //Toast.makeText(this, "Cross wins", Toast.LENGTH_SHORT).show();
@@ -60,7 +61,5 @@ public class ConnectGameActivity extends AppCompatActivity {
         Intent it = getIntent();
         finish();
         startActivity(it);
-
-
     }
 }

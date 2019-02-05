@@ -5,46 +5,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="550dp"
-    tools:context=".ConnectGameActivity"
-    android:weightSum="4"
-    android:background="@drawable/board"
-    android:layout_gravity="center"
     android:layout_alignParentLeft="true"
     android:layout_alignParentTop="true"
+    android:layout_gravity="center"
+    android:background="@drawable/board"
+    android:weightSum="4"
+    tools:context=".ConnectGameActivity"
     >
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_weight="1"
-        android:weightSum="3"
-        >
+        android:orientation="vertical"
+        android:weightSum="3">
 
         <ImageView
             android:layout_width="120dp"
             android:layout_height="170dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_weight="1"
-            android:layout_marginLeft="10dp"
             android:onClick="show"
-            android:tag="0"/>
+            android:tag="0" />
+
         <ImageView
             android:layout_width="120dp"
             android:layout_height="170dp"
-            android:layout_marginTop="8dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"
             android:layout_weight="1"
             android:clickable="true"
             android:onClick="show"
-            android:tag="1"/>
+            android:tag="1" />
+
         <ImageView
             android:layout_width="120dp"
             android:layout_height="170dp"
             android:layout_marginLeft="10dp"
             android:layout_weight="1"
-            android:tag="2"
             android:onClick="show"
-            />
+            android:tag="2" />
     </LinearLayout>
 
     <LinearLayout
@@ -53,16 +53,6 @@
         android:layout_weight="1"
         android:orientation="vertical"
         android:weightSum="3">
-        <ImageView
-            android:layout_width="120dp"
-            android:layout_height="170dp"
-            android:layout_gravity="left"
-
-            android:layout_marginTop="10dp"
-            android:layout_weight="1"
-            android:onClick="show"
-            android:tag="3"
-            />
 
         <ImageView
             android:layout_width="120dp"
@@ -71,8 +61,16 @@
             android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:onClick="show"
-            android:tag="4"
-            />
+            android:tag="3" />
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="170dp"
+            android:layout_gravity="left"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:onClick="show"
+            android:tag="4" />
 
         <ImageView
             android:layout_width="120dp"
@@ -80,43 +78,42 @@
             android:layout_gravity="left"
             android:layout_weight="1"
             android:onClick="show"
-            android:tag="5"
-            />
+            android:tag="5" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_weight="1"
-        android:weightSum="3"
-        >
+        android:orientation="vertical"
+        android:weightSum="3">
+
         <ImageView
             android:layout_width="120dp"
             android:layout_height="170dp"
+            android:layout_marginLeft="5dp"
             android:layout_marginTop="10dp"
             android:layout_weight="1"
-            android:layout_marginLeft="5dp"
-            android:tag="6"
             android:onClick="show"
-            />
+            android:tag="6" />
+
         <ImageView
-            android:layout_width="110dp"
-            android:layout_marginLeft="5dp"
+            android:layout_width="120dp"
             android:layout_height="170dp"
+            android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
             android:layout_weight="1"
             android:onClick="show"
-            android:tag="7"
-            />
+            android:tag="7" />
+
         <ImageView
-            android:layout_width="112dp"
+            android:layout_width="120dp"
             android:layout_height="170dp"
+            android:layout_marginLeft="5dp"
             android:layout_marginTop="10dp"
             android:layout_weight="1"
-            android:layout_marginLeft="5dp"
             android:onClick="show"
-            android:tag="8"
-            />
+            android:tag="8" />
     </LinearLayout>
 
     <FrameLayout
@@ -139,17 +136,15 @@
             android:textSize="50dp" />
 
         <Button
-            android:id="@+id/s"
-            style="@style/Widget.MaterialComponents.Button.UnelevatedButton.Icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="132dp"
+            android:layout_marginLeft="145dp"
             android:layout_marginTop="180dp"
             android:background="@color/colorPrimary"
             android:onClick="playAgain"
             android:text="play again"
-            android:textSize="20dp" />
+            android:textAllCaps="true"
+            android:textColor="@android:color/background_light"
+            android:textStyle="bold" />
     </FrameLayout>
-
-
 </LinearLayout>
