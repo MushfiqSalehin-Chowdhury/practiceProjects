@@ -7,9 +7,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class NumberShapes extends AppCompatActivity {
-
-
+public class NumberShapesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +16,7 @@ public class NumberShapes extends AppCompatActivity {
     }
 
         class TestNumber {
-        int number,x;
+        int number;
 
             public boolean isTriangular() {
                 int x = 1;
@@ -58,7 +56,6 @@ public class NumberShapes extends AppCompatActivity {
             if (ed.getText().toString().isEmpty()) {
 
                 Toast.makeText(this, "Please Enter a number", Toast.LENGTH_SHORT).show();
-
 
             } else {
 

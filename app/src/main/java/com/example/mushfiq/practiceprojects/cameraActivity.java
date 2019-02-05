@@ -86,7 +86,8 @@ public class cameraActivity extends AppCompatActivity {
         if(requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
             Bitmap photo = (Bitmap) data.getExtras().get("data");
-            ImageView.setImageBitmap(photo);
+            Bitmap resized = Bitmap.createScaledBitmap(photo,1080, 1920, true);
+            ImageView.setImageBitmap(resized);
             SaveImage(photo);
             }
         }
@@ -106,7 +107,7 @@ public class cameraActivity extends AppCompatActivity {
          FileOutputStream out;
         try {
             out = new FileOutputStream(file);
-            finalBitmap.compress(Bitmap.CompressFormat.JPEG, 100, out);
+            finalBitmap.compress(Bitmap.CompressFormat.JPEG,100, out);
             out.flush();
             out.close();
         } catch (Exception e) {

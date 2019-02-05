@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NumberShapes">
+    tools:context=".NumberShapesActivity">
 
 
     <TextView
@@ -15,7 +15,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="21dp"
         android:layout_marginTop="79dp"
-        android:text="Try A number To Check if it's a Triangularl or Square or Both"
+        android:text="Try A number To Check if it's a Triangular or Square or Both"
         android:textSize="24sp" />
 
     <EditText

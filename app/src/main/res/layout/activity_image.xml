@@ -14,6 +14,14 @@
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/car" />
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0"
+        android:src="@drawable/car2" />
+
+
     <Button
         android:id="@+id/button"
         style="@android:style/Widget.Button.Inset"
@@ -21,10 +29,21 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-
-
-        android:layout_marginLeft="164dp"
+        android:layout_marginLeft="235dp"
         android:layout_marginTop="444dp"
         android:onClick="changePicture"
         android:text="Change" />
+
+    <Button
+        android:id="@+id/button2"
+        style="@android:style/Widget.Button.Inset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="77dp"
+        android:layout_marginTop="444dp"
+        android:onClick="changePicture"
+        android:text="Previous" />
+
 </RelativeLayout>
