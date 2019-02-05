@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
 
     <Button
         android:id="@+id/image"
@@ -24,9 +24,8 @@
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="119dp"
         android:layout_marginTop="4dp"
-        android:text="High-Low Project"
         android:onClick="highLow"
-        />
+        android:text="High-Low Project" />
 
     <Button
         android:id="@+id/numberShape"
@@ -40,13 +39,36 @@
         android:text="Number Shape" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/conect3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/numberShape"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="155dp"
-        android:layout_marginTop="11dp"
-        android:text="Button" />
+        android:layout_marginLeft="124dp"
+        android:layout_marginTop="7dp"
+        android:onClick="connectGame"
+        android:text="Game : Connect 3" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="140dp"
+        android:layout_marginTop="234dp"
+        android:text="Take picture"
+        android:onClick="camera"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="148dp"
+        android:layout_marginTop="304dp"
+        android:onClick="playVideo"
+        android:text="Play Video" />
+
 
 </RelativeLayout>
