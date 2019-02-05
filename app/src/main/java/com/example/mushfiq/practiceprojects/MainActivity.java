@@ -24,13 +24,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(MainActivity.this, NumberShapesActivity.class));
     }
     public void connectGame(View view) {
-        try{
             startActivity(new Intent(MainActivity.this,ConnectGameActivity.class));
-        }
-        catch (Exception e){
-            Log.e("game","gameNot opening");
-        }
-
     }
 
     public void camera(View view) {
