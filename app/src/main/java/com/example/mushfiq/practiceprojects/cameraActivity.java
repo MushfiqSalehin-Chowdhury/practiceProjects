@@ -64,9 +64,14 @@ public class cameraActivity extends AppCompatActivity {
         SharedPreferences shared = getSharedPreferences("img", MODE_PRIVATE);
         String path = shared.getString("imagePreferance","");
        // Toast.makeText(this, path, Toast.LENGTH_SHORT).show();
+        Log.e("CameraActivity", String.valueOf(path));
         if (path!=""){
-           Toast.makeText(this, path, Toast.LENGTH_LONG).show();
-            Picasso.get().load(path).into(ImageView);
+               Bitmap bitmap = BitmapFactory.decodeFile(path);
+              ImageView.setImageBitmap(bitmap);
+            //Toast.makeText(this, path, Toast.LENGTH_SHORT).show();
+           // File f= new File(path);
+//            Picasso.get().load(new File(Uri.decode(path))).into(ImageView);
+
         }
     }
 
@@ -81,7 +86,7 @@ public class cameraActivity extends AppCompatActivity {
         if(requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
             Bitmap photo = (Bitmap) data.getExtras().get("data");
-           // ImageView.setImageBitmap(photo);
+            ImageView.setImageBitmap(photo);
             SaveImage(photo);
             }
         }
