@@ -7,8 +7,6 @@ import android.widget.MediaController;
 import android.widget.VideoView;
 
 public class VideoActivity extends AppCompatActivity {
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

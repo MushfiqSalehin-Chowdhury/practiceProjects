@@ -3,4 +3,5 @@
     <string name="title_activity_high__low">High_Low</string>
     <string name="title_activity_high_low">High_low</string>
     <string name="title_activity_conneect_game">ConneectGameActivity</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

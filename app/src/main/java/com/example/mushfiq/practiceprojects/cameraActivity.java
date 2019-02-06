@@ -65,13 +65,12 @@ public class cameraActivity extends AppCompatActivity {
         String path = shared.getString("imagePreferance","");
        // Toast.makeText(this, path, Toast.LENGTH_SHORT).show();
         Log.e("CameraActivity", String.valueOf(path));
-        if (path!=""){
+        if (path.isEmpty()){
                Bitmap bitmap = BitmapFactory.decodeFile(path);
               ImageView.setImageBitmap(bitmap);
             //Toast.makeText(this, path, Toast.LENGTH_SHORT).show();
            // File f= new File(path);
 //            Picasso.get().load(new File(Uri.decode(path))).into(ImageView);
-
         }
     }
 

@@ -34,4 +34,15 @@ public class MainActivity extends AppCompatActivity {
     public void playVideo(View view) {
         startActivity(new Intent(MainActivity.this,VideoActivity.class));
     }
+
+    public void QuickCalc(View view) {
+        startActivity(new Intent(MainActivity.this,QuickCalc.class));
+    }
+
+    public void Location(View view) {
+        startActivity(new Intent(MainActivity.this,MapsActivity.class));
+    }
+
+    public void YourLocation(View view) {
+    }
 }
