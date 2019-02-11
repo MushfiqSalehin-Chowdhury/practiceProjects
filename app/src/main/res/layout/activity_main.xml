@@ -119,7 +119,7 @@
             android:layout_gravity="fill"
             android:background="@color/common_google_signin_btn_text_dark_disabled"
             android:onClick="Location"
-            android:text="Demo Location"
+            android:text="My Location"
             android:textStyle="bold" />
 
     </GridLayout>

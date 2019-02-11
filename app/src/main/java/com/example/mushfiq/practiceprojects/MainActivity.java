@@ -43,6 +43,4 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(MainActivity.this,MapsActivity.class));
     }
 
-    public void YourLocation(View view) {
-    }
 }
