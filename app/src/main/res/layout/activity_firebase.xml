@@ -29,6 +29,7 @@
         android:ems="10"
         android:layout_marginTop="10dp"
         android:hint="Name"
+        android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
          />
 
     <TextView
@@ -38,6 +39,7 @@
         android:text="Email"
         android:textSize="20dp"
         android:layout_marginTop="20dp"
+
         />
 
     <EditText
@@ -53,26 +55,58 @@
         android:id="@+id/Save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Save"
+        android:text="Save to firebase"
         android:textSize="18dp"
         android:layout_marginTop="20dp"
         android:layout_gravity="center_horizontal"
         android:onClick="SaveData"
         />
+
     <Button
-        android:id="@+id/Show"
+        android:text="Save to Database"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:textSize="18dp"
-        android:text="Show"
-        android:onClick="ShowData"
+        android:onClick="savetoDatabase"
         />
+    <Button
+    android:id="@+id/Sho"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:textSize="18dp"
+    android:text="Show from firebase"
+    android:onClick="ShowData"
+    />
 
-    <TextView
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/Details"
+        android:layout_gravity="center_horizontal"
+        android:textSize="18dp"
+        android:text="Show from database"
+        android:onClick="showFromDB"
+
+        />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent2"
+        android:scrollbars="vertical"
+        android:visibility="gone"
+        >
+
+    </android.support.v7.widget.RecyclerView>
+
+
+    <TextView
+        android:id="@+id/showdb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
         />
 
 

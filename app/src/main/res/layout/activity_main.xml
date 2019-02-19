@@ -36,7 +36,7 @@
             android:layout_column="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:background="@color/colorAccent2"
+            android:background="@android:color/holo_blue_dark"
             android:onClick="highLow"
             android:text="High-Low Project"
             android:textStyle="bold" />
@@ -50,7 +50,7 @@
             android:layout_column="0"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:background="@color/colorAccent4"
+            android:background="@android:color/holo_blue_bright"
             android:onClick="NumberShape"
             android:text="Number Shape"
             android:textStyle="bold" />
@@ -64,7 +64,7 @@
             android:layout_column="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:background="@color/colorAccent6"
+            android:background="@android:color/holo_purple"
             android:onClick="connectGame"
             android:text="Tic Tac Toe"
             android:textStyle="bold" />
@@ -78,7 +78,7 @@
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
 
-            android:background="@color/colorAccent5"
+            android:background="@android:color/holo_red_dark"
             android:onClick="camera"
             android:text="Take picture"
             android:textStyle="bold" />
@@ -117,10 +117,11 @@
             android:layout_column="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:background="@color/common_google_signin_btn_text_dark_disabled"
+            android:background="@android:color/holo_orange_dark"
             android:onClick="Location"
             android:text="My Location"
             android:textStyle="bold" />
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -129,9 +130,23 @@
             android:layout_column="0"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:background="@color/common_google_signin_btn_text_dark_disabled"
-            android:onClick="Download"
+            android:background="@android:color/holo_green_dark"
+            android:onClick="Firebase"
             android:text="Fire Base"
+            android:textStyle="bold" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="4"
+            android:layout_rowWeight="1"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="@android:color/holo_red_light"
+            android:capitalize="none"
+            android:onClick="Sqlite"
+            android:text="SQLite"
             android:textStyle="bold" />
 
 

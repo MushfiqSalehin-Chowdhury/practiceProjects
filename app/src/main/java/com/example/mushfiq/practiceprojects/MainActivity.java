@@ -42,7 +42,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(MainActivity.this,MapsActivity.class));
     }
 
-    public void Download(View view) {
+    public void Firebase(View view) {
         startActivity(new Intent(MainActivity.this, FirebaseActivity.class));
+    }
+
+    public void Sqlite(View view) {
+
     }
 }

@@ -1,5 +1,4 @@
 package com.example.mushfiq.practiceprojects;
-
 import android.Manifest;
 import android.app.Activity;
 import android.content.ContentValues;
@@ -43,7 +42,6 @@ import java.util.Date;
 import java.util.Random;
 
 import static android.media.MediaRecorder.VideoSource.CAMERA;
-
 public class cameraActivity extends AppCompatActivity {
 
     static final int REQUEST_IMAGE_CAPTURE = 1;
@@ -53,7 +51,6 @@ public class cameraActivity extends AppCompatActivity {
             Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE
     };
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,12 +62,12 @@ public class cameraActivity extends AppCompatActivity {
         String path = shared.getString("imagePreferance","");
        // Toast.makeText(this, path, Toast.LENGTH_SHORT).show();
         Log.e("CameraActivity", String.valueOf(path));
-        if (path.isEmpty()){
+        if (path.isEmpty()!= true){
                Bitmap bitmap = BitmapFactory.decodeFile(path);
               ImageView.setImageBitmap(bitmap);
             //Toast.makeText(this, path, Toast.LENGTH_SHORT).show();
            // File f= new File(path);
-//            Picasso.get().load(new File(Uri.decode(path))).into(ImageView);
+            // Picasso.get().load(new File(Uri.decode(path))).into(ImageView);
         }
     }
 
@@ -85,8 +82,8 @@ public class cameraActivity extends AppCompatActivity {
         if(requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
             Bitmap photo = (Bitmap) data.getExtras().get("data");
-            Bitmap resized = Bitmap.createScaledBitmap(photo,1080, 1920, true);
-            ImageView.setImageBitmap(resized);
+            //Bitmap resized = Bitmap.createScaledBitmap(photo,1080, 1920, true);
+            ImageView.setImageBitmap(photo);
             SaveImage(photo);
             }
         }
@@ -113,7 +110,6 @@ public class cameraActivity extends AppCompatActivity {
             e.printStackTrace();
             Log.e("CameraActivity", String.valueOf(e));
         }
-      //Toast.makeText(this, "Item = "+item, Toast.LENGTH_SHORT).show();
     }
     public static void verifyStoragePermissions(Activity activity) {
         int permission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
@@ -124,22 +120,3 @@ public class cameraActivity extends AppCompatActivity {
         }
     }
 }
-    /*private void saveImage(Bitmap bitmap) {
-        String tempImageName = imageName = TextUtils.isEmpty(imageName) ? System.currentTimeMillis()+"_"+new Random().nextInt()+".jpg" : imageName+ ".jpg";
-        String file_path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/"+imageDirName+"/Image";
-        File dir = new File(file_path);
-        if (!dir.exists())
-            dir.mkdirs();
-        File file = new File(dir, tempImageName);
-        imageFile = file;
-        FileOutputStream fOut;
-        try {
-            fOut = new FileOutputStream(file);
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fOut);
-            fOut.flush();
-            fOut.close();
-        } catch (Exception e) {
-            Log.e(TAG, "saveImage: "+e.getMessage().toString() );
-        }
-        imageFilePath = file_path+"/"+tempImageName;
-    }*/
