@@ -46,7 +46,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(MainActivity.this, FirebaseActivity.class));
     }
 
-    public void Sqlite(View view) {
 
+    public void Retrofit(View view) {
+        startActivity(new Intent(MainActivity.this,RetrofitActivity.class));
     }
 }
