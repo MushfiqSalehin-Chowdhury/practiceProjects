@@ -16,13 +16,15 @@
         android:id="@+id/image"
 
         />
-  <Button
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="Camera"
-    android:onClick="launchCamera"
-      android:layout_marginLeft="150dp"
-      />
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:onClick="launchCamera"
+        android:src="@drawable/cam"
+        app:backgroundTint="@android:color/holo_red_light" />
 
 
 </LinearLayout>
