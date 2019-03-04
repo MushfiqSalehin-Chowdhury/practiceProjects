@@ -46,7 +46,7 @@ public class QuickCalc extends AppCompatActivity {
         linearLayout.setVisibility(View.INVISIBLE);
         grid.setVisibility(View.VISIBLE);
         tv1.setVisibility(View.VISIBLE);
-        new CountDownTimer(30000,1000) {
+        new CountDownTimer(60000,1000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 tv4.setText(String.valueOf(millisUntilFinished/1000)+"s");
@@ -78,16 +78,23 @@ public class QuickCalc extends AppCompatActivity {
         Random rand = new Random();
         int a= rand.nextInt(100);
         int b=  rand.nextInt(100);
-        tv1.setText(Integer.toString(a)+ "+" + Integer.toString(b));
+        String arr[]={"+","-"};
+        int select= rand.nextInt(arr.length);
+        tv1.setText(Integer.toString(a)+ arr[select] + Integer.toString(b));
         positions = rand.nextInt(4);
         int incorrect ;
         for(int i=0; i<4 ; i++ ){
 
             if (i==positions){
-                answers.add(a+b);
+                if(arr[select]=="+") {
+                    answers.add(a + b);
+                }
+                if(arr[select]=="-") {
+                    answers.add(a - b);
+                }
             }else {
                 incorrect = rand.nextInt(101);
-                while (incorrect==a+b){
+                while (incorrect==a+b || incorrect==a-b){
                     incorrect= rand.nextInt(101);
                 }
                 answers.add(incorrect);
